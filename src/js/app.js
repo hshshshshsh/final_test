@@ -20,7 +20,15 @@ $('.btn-savenote').on("click", function(){
 
 $('.btn-about').on("click", function(){
     console.log("about");
-});
+    $('#popup_layer, #overlay_t').show();
+        $('#popup_layer').css("top", Math.max(0, $(window).scrollTop() + 200) + "px");
+        // $('#popup_layer').css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + $(window).scrollTop()) + "px");
+    });
+    $('#overlay_t, .close').click(function(e){
+        e.preventDefault();
+        $('#popup_layer, #overlay_t').hide();
+    });
+// });
 
 $('.btn-fullscreen').on("click", function(){
     console.log("fullscreen");
