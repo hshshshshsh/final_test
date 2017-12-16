@@ -6,12 +6,12 @@ var cleanCSS = require('gulp-clean-css');
 var connect = require('gulp-connect');
 
 //js 프로젝트 소스파일
-var jsfiles = ['src/js/config.js', 'src/js/pages/**/*.js', 'src/js/main.js'];
+var jsfiles = ['src/js/app.js', 'src/js/FileSaver.js', 'src/js/screenfull.js'];
 
 gulp.task('concat:js', function() {
   return gulp.src(jsfiles)
     .pipe(concat('app.js'))
-    .pipe(gulp.dest('dist/'));
+    .pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('copy:html', function() {
@@ -28,12 +28,12 @@ gulp.task('copy:lib', function() {
 gulp.task('minify:js', function() {
   return gulp.src('dist/app.js')
     .pipe(uglify())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('minify:css', function() {
   return gulp.src('src/css/*.css')
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist/css'));
 });
 
 gulp.task('watch', function() {
